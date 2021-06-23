@@ -191,6 +191,7 @@ double h = MediaQuery.of(context).size.height;
                ),
                //3rd container
               Container(
+                margin: EdgeInsets.only(bottom: 300),
                 width: w,
           height: h,
           decoration: BoxDecoration(
@@ -461,10 +462,7 @@ double h = MediaQuery.of(context).size.height;
                   ),
                 ),
               ),
-              Divider(
-                height: 100,
-                thickness: 2.0
-              )
+              
               
                 
                 ]),
