@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 
 
@@ -71,7 +72,7 @@ class FirstCardData extends StatelessWidget {
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
 double h = MediaQuery.of(context).size.height;
-    return Column(
+    return ListView(
       children: [
         Padding(
           padding: const EdgeInsets.all(30.0),
@@ -145,63 +146,339 @@ double h = MediaQuery.of(context).size.height;
             )
           ],),
         ),
-        SingleChildScrollView(
-                  child: Container(
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Text('My EQOES (3)', style: TextStyle(
+        //2nd container
+        Container(
+          child: ListView(
+              
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Text('My EQOES (3)', style: TextStyle(
+          decoration: TextDecoration.none,
+          fontSize: 18.0,
+          color: Colors.black
+                    ),),
+                ),
+               Container(
+                 height: h * .23,
+                 width: w ,
+                 child: ListView.builder(
+                   scrollDirection: Axis.horizontal,
+                   padding: EdgeInsets.only(left: 20, bottom: 20, right: 30.0),
+                   itemCount: 3,
+                   itemBuilder: (context, index){
+                     return CustomCards();
+                 }),
+               ),
+               Padding(
+                 padding: const EdgeInsets.only(left: 20.0, bottom: 20.0),
+                 child: Text('My Friends EQOES (25)', style: TextStyle(
             decoration: TextDecoration.none,
             fontSize: 18.0,
             color: Colors.black
-                      ),),
-                  ),
-                 Container(
-                   height: h * .23,
-                   width: w ,
-                   child: ListView.builder(
-                     scrollDirection: Axis.horizontal,
-                     padding: EdgeInsets.only(left: 20, bottom: 20, right: 30.0),
-                     itemCount: 3,
-                     itemBuilder: (context, index){
-                       return CustomCards();
-                   }),
-                 ),
-                 Padding(
-                   padding: const EdgeInsets.only(left: 20.0, bottom: 20.0),
-                   child: Text('My Friends EQOES (25)', style: TextStyle(
-              decoration: TextDecoration.none,
-              fontSize: 18.0,
-              color: Colors.black
-            ),),
-                 ),
-                Container(
-                   height: h * .23,
-                   width: w ,
-                   child: ListView.builder(
-                     scrollDirection: Axis.horizontal,
-                     padding: EdgeInsets.only(left: 20, bottom: 20, right: 30.0),
-                     itemCount: 3,
-                     itemBuilder: (context, index){
-                       return CustomCards2();
-                   }),
-                 ),
-                 
-                 
-                ],
-              ),
-            width: w,
-            height: h,
-            decoration: BoxDecoration(
-                 color: Colors.white,
-                  borderRadius: BorderRadius.only(
+          ),),
+               ),
+              Container(
+                 height: h * .23,
+                 width: w ,
+                 child: ListView.builder(
+                   scrollDirection: Axis.horizontal,
+                   padding: EdgeInsets.only(left: 20, bottom: 20, right: 30.0),
+                   itemCount: 3,
+                   itemBuilder: (context, index){
+                     return CustomCards2();
+                 }),
+               ),
+               //3rd container
+              Container(
+                width: w,
+          height: h,
+          decoration: BoxDecoration(
+               color: Color(0xffF2F2F7),
+                borderRadius: BorderRadius.only(
       topLeft: Radius.circular(40.0),
       topRight: Radius.circular(40.0),
+                ),
+              
+          ),
+                child: Column(children: <Widget>[
+              Card(
+                margin: EdgeInsets.all(15),
+                color: Colors.white,
+                elevation: 10,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(13.0),
                   ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10.0, right: 10),
+                  child: ExpansionTile(
+                    tilePadding: EdgeInsets.all(10),
+                    leading: Icon(
+                      Icons.schedule,
+                      color: Color(0xff0D4BFF),
+                      size: 40,
+                    ),
+                    trailing: Icon(
+                      Icons.expand_more,
+                      color: Color(0xff0D4BFF),
+                      size: 40,
+                    ),
+                    backgroundColor: Colors.white,
+                    title: Text(
+                      "Opening Hours",
+                      style: GoogleFonts.poppins(
+                          color: Color(0xff607D8B),
+                          fontSize: 17,
+                          fontWeight: FontWeight.normal),
+                    ),
+                    subtitle: Text(
+                      "Open untill 10 pm",
+                      style: GoogleFonts.poppins(
+                          color: Color(0xff0D4BFF),
+                          fontSize: 15,
+                          fontWeight: FontWeight.normal),
+                    ),
+                    children: <Widget>[
+                      Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text(
+                                  "Monday",
+                                  style: GoogleFonts.poppins(
+                                      color: Color(0xff263238), fontSize: 12),
+                                ),
+                                Text(
+                                  "07am-09pm",
+                                  style: GoogleFonts.poppins(
+                                      color: Color(0xff263238), fontSize: 12),
+                                )
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text(
+                                  "Tuesday",
+                                  style: GoogleFonts.poppins(
+                                      color: Color(0xff607D8B), fontSize: 12),
+                                ),
+                                Text(
+                                  "07am-09pm",
+                                  style: GoogleFonts.poppins(
+                                      color: Color(0xff607D8B), fontSize: 12),
+                                )
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text(
+                                  "Wednesday",
+                                  style: GoogleFonts.poppins(
+                                      color: Color(0xff607D8B), fontSize: 12),
+                                ),
+                                Text(
+                                  "07am-07pm",
+                                  style: GoogleFonts.poppins(
+                                      color: Color(0xff607D8B), fontSize: 12),
+                                )
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text(
+                                  "Thursday",
+                                  style: GoogleFonts.poppins(
+                                      color: Color(0xff607D8B), fontSize: 12),
+                                ),
+                                Text(
+                                  "07am-07pm",
+                                  style: GoogleFonts.poppins(
+                                      color: Color(0xff607D8B), fontSize: 12),
+                                )
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text(
+                                  "Friday",
+                                  style: GoogleFonts.poppins(
+                                      color: Color(0xff607D8B), fontSize: 12),
+                                ),
+                                Text(
+                                  "08am-11pm",
+                                  style: GoogleFonts.poppins(
+                                      color: Color(0xff607D8B), fontSize: 12),
+                                )
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text(
+                                  "Saturday",
+                                  style: GoogleFonts.poppins(
+                                      color: Color(0xff607D8B), fontSize: 12),
+                                ),
+                                Text(
+                                  "10am-10pm",
+                                  style: GoogleFonts.poppins(
+                                      color: Color(0xff607D8B), fontSize: 12),
+                                )
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text(
+                                  "Sunday",
+                                  style: GoogleFonts.poppins(
+                                      color: Color(0xff607D8B), fontSize: 12),
+                                ),
+                                Text(
+                                  "10am-07pm",
+                                  style: GoogleFonts.poppins(
+                                      color: Color(0xff607D8B), fontSize: 12),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              Card1(
+                leading: Image(
+                  height: 40,
+                  width: 40,
+                  image: AssetImage(
+                    "images/call.png",
+                  ),
+                ),
+                trailing: Icon(
+                  Icons.arrow_forward_ios,
+                  color: Color(0xffAD4AFE),
+                  size: 30,
+                ),
+                title: Text(
+                  "Call Now",
+                  style: TextStyle(color: Color(0xff607D8B), fontSize: 20),
+                ),
+                subtitle: Text(
+                  "+12812363179",
+                  style: TextStyle(color: Color(0xffAD4AFE), fontSize: 15),
+                ),
+              ),
+              Card1(
+                leading: Icon(
+                  Icons.restaurant,
+                  color: Color(0xffF2AD3E),
+                  size: 50,
+                ),
+                trailing: Icon(
+                  Icons.arrow_forward_ios,
+                  color: Color(0xffF2AD3E),
+                  size: 30,
+                ),
+                title: Text(
+                  "Food Menu",
+                  style: TextStyle(color: Color(0xff607D8B), fontSize: 20),
+                ),
+                subtitle: Text(
+                  "Available",
+                  style: TextStyle(color: Color(0xffF2AD3E), fontSize: 15),
+                ),
+              ),
+              Card1(
+                leading: Icon(
+                  Icons.location_on_outlined,
+                  color: Color(0xff0C7EE8),
+                  size: 50,
+                ),
+                trailing: Icon(
+                  Icons.arrow_forward_ios,
+                  color: Color(0xff0C7EE8),
+                  size: 30,
+                ),
+                title: Text(
+                  "Get Direction",
+                  style: TextStyle(color: Color(0xff607D8B), fontSize: 20),
+                ),
+                subtitle: Text(
+                  "15 km Away",
+                  style: TextStyle(color: Color(0xff0C7EE8), fontSize: 15),
+                ),
+              ),
+              Card1(
+                trailing: Icon(
+                  Icons.arrow_forward_ios,
+                  color: Color(0xff4F5B62),
+                  size: 30,
+                ),
+                title: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "About",
+                    style: TextStyle(
+                        color: Color(0xff607D8B),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                subtitle: Padding(
+                  padding: const EdgeInsets.only(left: 8),
+                  child: Text(
+                    "Lorum ipsum dolor sit amet,consetetur\nsadipscing elitr,sed diam nonumey eirmod\ntempor invidunt ut labore et dolabre magna ",
+                    style: TextStyle(color: Color(0xff4F5B62), fontSize: 13),
+                  ),
+                ),
+              ),
+              Divider(
+                height: 100,
+                thickness: 2.0
+              )
+              
                 
+                ]),
+              )],
             ),
+          width: w,
+          height: h,
+          decoration: BoxDecoration(
+               color: Colors.white,
+                borderRadius: BorderRadius.only(
+      topLeft: Radius.circular(40.0),
+      topRight: Radius.circular(40.0),
+                ),
+              
           ),
         )
       ],
@@ -216,6 +493,7 @@ class CustomCards extends StatelessWidget {
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
     return Container(
+      margin: EdgeInsets.only(right: 20.0),
       height: 200,
       width: 350,
       decoration: BoxDecoration(
@@ -282,6 +560,7 @@ class CustomCards2 extends StatelessWidget {
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
     return Container(
+      margin: EdgeInsets.only(right: 20.0),
       height: 200,
       width: 350,
       decoration: BoxDecoration(
@@ -337,5 +616,38 @@ class CustomCards2 extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+
+
+class Card1 extends StatelessWidget {
+  Widget leading;
+  Widget title;
+  Widget trailing;
+  Widget subtitle;
+
+  Card1({this.leading, this.title, this.subtitle, this.trailing});
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+        margin: EdgeInsets.all(15),
+        color: Colors.white,
+        elevation: 10,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(13.0),
+          ),
+        ),
+        child: Padding(
+            padding: const EdgeInsets.only(left: 10.0, right: 10),
+            child: ExpansionTile(
+              tilePadding: EdgeInsets.all(10),
+              leading: leading,
+              trailing: trailing,
+              backgroundColor: Colors.white,
+              title: title,
+              subtitle: subtitle,
+            )));
   }
 }
